@@ -15,7 +15,7 @@ exports.getAll = async (req, res) => {
 exports.getById = async (req, res) => {
   try {
     const transaction = await Transaction.findByPk(req.params.id);
-    if (!transaction) return res.status(404).json({ error: 'Transaksi tidak ditemukan' });
+    if (!transaction) return res.status(404).json({ error: 'Transaksi tidak bisa ditemukan' });
     res.json(transaction);
   } catch (err) {
     res.status(500).json({ error: err.message });
